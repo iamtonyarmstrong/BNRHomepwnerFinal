@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		920A90F11919D6C000E7E6E5 /* BNRItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920A90F01919D6C000E7E6E5 /* BNRItemsViewController.m */; };
+		920A90F31919DFD300E7E6E5 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 920A90F21919DFD300E7E6E5 /* HeaderView.xib */; };
 		9215B9011919D2C500FA7C07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9215B9001919D2C500FA7C07 /* Foundation.framework */; };
 		9215B9031919D2C500FA7C07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9215B9021919D2C500FA7C07 /* CoreGraphics.framework */; };
 		9215B9051919D2C500FA7C07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9215B9041919D2C500FA7C07 /* UIKit.framework */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		920A90EF1919D6C000E7E6E5 /* BNRItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRItemsViewController.h; path = BNRHomepwnerFinal/Controllers/BNRItemsViewController.h; sourceTree = SOURCE_ROOT; };
 		920A90F01919D6C000E7E6E5 /* BNRItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRItemsViewController.m; path = BNRHomepwnerFinal/Controllers/BNRItemsViewController.m; sourceTree = SOURCE_ROOT; };
+		920A90F21919DFD300E7E6E5 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		9215B8FD1919D2C500FA7C07 /* BNRHomepwnerFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BNRHomepwnerFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9215B9001919D2C500FA7C07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9215B9021919D2C500FA7C07 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +121,7 @@
 		9215B9061919D2C500FA7C07 /* BNRHomepwnerFinal */ = {
 			isa = PBXGroup;
 			children = (
+				920A90F21919DFD300E7E6E5 /* HeaderView.xib */,
 				9215B93C1919D3F600FA7C07 /* Model */,
 				9215B92F1919D3BD00FA7C07 /* Controllers */,
 				9215B90F1919D2C500FA7C07 /* BNRAppDelegate.h */,
@@ -257,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				920A90F31919DFD300E7E6E5 /* HeaderView.xib in Resources */,
 				9215B90B1919D2C500FA7C07 /* InfoPlist.strings in Resources */,
 				9215B9131919D2C500FA7C07 /* Images.xcassets in Resources */,
 			);

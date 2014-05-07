@@ -12,6 +12,7 @@
 
 @interface BNRItemsViewController ()
 
+@property (nonatomic,strong) IBOutlet UIView *headerView;
 
 @end
 
@@ -36,6 +37,17 @@
     return [self init];
 }
 
+- (UIView *)headerView
+{
+    if (!_headerView) {
+        //load NIB file
+        [[NSBundle mainBundle] loadNibNamed:@"HeaderView"
+                                      owner:self
+                                    options:nil];
+    }
+    return _headerView;
+}
+
 
 -(void)viewDidLoad
 {
@@ -48,6 +60,9 @@
     //wanted to use it, I'd set that class here...
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
+
+    UIView *header = self.headerView;
+    [self.tableView setTableHeaderView:header];
 
 }
 
@@ -78,4 +93,17 @@
 
     return cell;
 }
+
+#pragma mark - Methods to handle editing of table
+- (IBAction)addNewItem:(id)sender
+{
+
+}
+
+- (IBAction)toggleEditingMode:(id)sender
+{
+
+}
+
+
 @end
