@@ -58,4 +58,19 @@
     return [self.privateItems copy];
 }
 
+- (void)moveItemAtIndex: (NSUInteger)fromIndex
+                toIndex:(NSUInteger)toIndex
+{
+    if (fromIndex == toIndex) {
+        return;
+    }
+
+    //Get a pointer to the item you're planning to move
+    BNRItem *item = self.privateItems[fromIndex];
+
+    //Remove item from array, then put that item into the new array position
+    [self.privateItems removeObjectAtIndex:fromIndex];
+    [self.privateItems insertObject:item atIndex:toIndex];
+}
+
 @end
