@@ -15,5 +15,6 @@
 
 + (instancetype)sharedStore;
 - (BNRItem *)createItem;
+- (void)removeItem:(BNRItem *)item;
 
 @end

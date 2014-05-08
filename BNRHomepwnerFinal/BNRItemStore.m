@@ -48,6 +48,11 @@
     return item;
 }
 
+- (void)removeItem:(BNRItem *)item
+{
+    [self.privateItems removeObjectIdenticalTo:item];
+}
+
 - (NSArray *) allItems
 {
     return [self.privateItems copy];

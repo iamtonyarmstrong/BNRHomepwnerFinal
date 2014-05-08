@@ -23,10 +23,7 @@
 {
     //call the default init of the superclass, if a developer calls this init
     if(self = [super initWithStyle:UITableViewStylePlain]){
-        for(int i = 0; i < 5; i++){
-            [[BNRItemStore sharedStore]createItem];
-        }
-        NSLog(@"%@", [[BNRItemStore sharedStore]allItems]);
+        
     }
     return self;
 }
@@ -97,7 +94,18 @@
 #pragma mark - Methods to handle editing of table
 - (IBAction)addNewItem:(id)sender
 {
+    //Add new item to the tableview and the BNRItemStore
+    //NSInteger lastRow = [self.tableView numberOfRowsInSection:0];
 
+    BNRItem *newItem = [[BNRItemStore sharedStore]createItem];
+
+    //Figure out where the item goes in the array
+    NSInteger lastRow = [[[BNRItemStore sharedStore]allItems] indexOfObject:newItem];
+
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+
+    //Inser this new row into the table.
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
 }
 
 - (IBAction)toggleEditingMode:(id)sender
@@ -115,6 +123,22 @@
 
         //Enter editing mode
         [self setEditing:YES animated:YES];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //if tableview is asking to commit a delete command...
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSArray *items = [[BNRItemStore sharedStore]allItems];
+        BNRItem *item = items[indexPath.row];
+        [[BNRItemStore sharedStore]removeItem:item];
+
+        //Also remove that item from the table view with an animation
+        [tableView deleteRowsAtIndexPaths:@[indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
