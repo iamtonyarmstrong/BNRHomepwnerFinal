@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		920A90F11919D6C000E7E6E5 /* BNRItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920A90F01919D6C000E7E6E5 /* BNRItemsViewController.m */; };
 		920A90F31919DFD300E7E6E5 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 920A90F21919DFD300E7E6E5 /* HeaderView.xib */; };
+		920A90F7191C7AB300E7E6E5 /* BNRDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920A90F5191C7AB300E7E6E5 /* BNRDetailViewController.m */; };
+		920A90F8191C7AB300E7E6E5 /* BNRDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 920A90F6191C7AB300E7E6E5 /* BNRDetailViewController.xib */; };
 		9215B9011919D2C500FA7C07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9215B9001919D2C500FA7C07 /* Foundation.framework */; };
 		9215B9031919D2C500FA7C07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9215B9021919D2C500FA7C07 /* CoreGraphics.framework */; };
 		9215B9051919D2C500FA7C07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9215B9041919D2C500FA7C07 /* UIKit.framework */; };
@@ -40,6 +42,9 @@
 		920A90EF1919D6C000E7E6E5 /* BNRItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRItemsViewController.h; path = BNRHomepwnerFinal/Controllers/BNRItemsViewController.h; sourceTree = SOURCE_ROOT; };
 		920A90F01919D6C000E7E6E5 /* BNRItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRItemsViewController.m; path = BNRHomepwnerFinal/Controllers/BNRItemsViewController.m; sourceTree = SOURCE_ROOT; };
 		920A90F21919DFD300E7E6E5 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		920A90F4191C7AB300E7E6E5 /* BNRDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRDetailViewController.h; path = BNRHomepwnerFinal/Controllers/BNRDetailViewController.h; sourceTree = SOURCE_ROOT; };
+		920A90F5191C7AB300E7E6E5 /* BNRDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRDetailViewController.m; path = BNRHomepwnerFinal/Controllers/BNRDetailViewController.m; sourceTree = SOURCE_ROOT; };
+		920A90F6191C7AB300E7E6E5 /* BNRDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BNRDetailViewController.xib; path = BNRHomepwnerFinal/Controllers/BNRDetailViewController.xib; sourceTree = SOURCE_ROOT; };
 		9215B8FD1919D2C500FA7C07 /* BNRHomepwnerFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BNRHomepwnerFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9215B9001919D2C500FA7C07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9215B9021919D2C500FA7C07 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -166,6 +171,9 @@
 			children = (
 				920A90EF1919D6C000E7E6E5 /* BNRItemsViewController.h */,
 				920A90F01919D6C000E7E6E5 /* BNRItemsViewController.m */,
+				920A90F4191C7AB300E7E6E5 /* BNRDetailViewController.h */,
+				920A90F5191C7AB300E7E6E5 /* BNRDetailViewController.m */,
+				920A90F6191C7AB300E7E6E5 /* BNRDetailViewController.xib */,
 			);
 			name = Controllers;
 			path = ../Controllers;
@@ -260,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				920A90F8191C7AB300E7E6E5 /* BNRDetailViewController.xib in Resources */,
 				920A90F31919DFD300E7E6E5 /* HeaderView.xib in Resources */,
 				9215B90B1919D2C500FA7C07 /* InfoPlist.strings in Resources */,
 				9215B9131919D2C500FA7C07 /* Images.xcassets in Resources */,
@@ -284,6 +293,7 @@
 				920A90F11919D6C000E7E6E5 /* BNRItemsViewController.m in Sources */,
 				9215B90D1919D2C500FA7C07 /* main.m in Sources */,
 				9215B93A1919D3E800FA7C07 /* BNRItem.m in Sources */,
+				920A90F7191C7AB300E7E6E5 /* BNRDetailViewController.m in Sources */,
 				9215B9391919D3E800FA7C07 /* BNRContainer.m in Sources */,
 				9215B9111919D2C500FA7C07 /* BNRAppDelegate.m in Sources */,
 				9215B93B1919D3E800FA7C07 /* BNRItemStore.m in Sources */,

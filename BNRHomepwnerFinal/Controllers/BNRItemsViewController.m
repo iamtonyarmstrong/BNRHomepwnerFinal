@@ -9,6 +9,7 @@
 #import "BNRItemsViewController.h"
 #import "BNRItem.h"
 #import "BNRItemStore.h"
+#import "BNRDetailViewController.h"
 
 @interface BNRItemsViewController ()
 
@@ -63,7 +64,7 @@
 
 }
 
-#pragma mark - Create rows and the individual cells of the tables
+#pragma mark - Create and select rows and the individual cells of the tables
 - (NSInteger)numberOfSections
 {
     return 1;
@@ -89,6 +90,15 @@
     cell.textLabel.text = [item description];
 
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BNRDetailViewController *detailViewController = [[BNRDetailViewController alloc] init];
+
+    //push the new view controller to the top of the stack when a row is selected.
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 #pragma mark - Methods to handle editing of table
