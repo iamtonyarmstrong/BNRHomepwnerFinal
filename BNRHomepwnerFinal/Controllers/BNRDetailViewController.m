@@ -77,6 +77,11 @@
     
 }
 
+//Dismiss the keyboard when user taps on UIView anywhere outside textField
+- (IBAction)backgroundTapped:(id)sender
+{
+    [self.view endEditing:YES];
+}
 
 #pragma mark - Methods to handle camera functionality
 //Notice, this is how to interact with the camera. Check to see if there's a cam available, if not
@@ -84,8 +89,10 @@
 - (IBAction)takePicture:(id)sender
 {
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        imagePickerController.allowsEditing = YES;
     } else {
         imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
@@ -105,6 +112,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     //Get picked image from the info directory
     UIImage *image = info[UIImagePickerControllerOriginalImage];
 
+    if(info[UIImagePickerControllerEditedImage]) image = info[UIImagePickerControllerEditedImage];
+
     //Store the image in the ImageStore using the UUID as the key
     [[BNRImageStore sharedStore] setImage:image forKey:self.item.itemUUIDKey];
 
@@ -115,6 +124,14 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (IBAction)removeImageFromItem:(id)sender
+{
+    self.imageView.image = nil;
+    [[BNRImageStore sharedStore] deleteImageForKey:self.item.itemUUIDKey];
+
+    [self.view setNeedsDisplay];
+
+}
 
 - (IBAction)changeDateForItem:(id)sender
 {
@@ -127,6 +144,15 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
     //push the new view controller to the top of the stack when a row is selected.
     [self.navigationController pushViewController:dateViewController animated:YES];
+}
+
+
+#pragma mark - Keyboard functionality
+//Kill keyboard if user taps outside of the text field
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 

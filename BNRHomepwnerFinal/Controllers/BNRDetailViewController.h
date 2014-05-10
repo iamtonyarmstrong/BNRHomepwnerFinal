@@ -14,7 +14,7 @@
 #import <UIKit/UIKit.h>
 @class BNRItem;
 
-@interface BNRDetailViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface BNRDetailViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @property (nonatomic,strong)BNRItem *item;
 
