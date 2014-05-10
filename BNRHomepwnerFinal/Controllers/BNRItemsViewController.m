@@ -13,7 +13,7 @@
 
 @interface BNRItemsViewController ()
 
-@property (nonatomic,strong) IBOutlet UIView *headerView;
+//@property (nonatomic,strong) IBOutlet UIView *headerView;
 
 @end
 
@@ -26,6 +26,17 @@
     if(self = [super initWithStyle:UITableViewStylePlain]){
         UINavigationItem *navItem = self.navigationItem;
         navItem.title = @"Homepwner";
+
+        //create a new bar button item that will send addNewItem: to BNRItemsViewController
+        UIBarButtonItem *bbi = [[UIBarButtonItem alloc]
+                                initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                             target:self
+                                                                             action:@selector(addNewItem:)];
+
+        //set this bar item as the right item in the navigationItem
+        navItem.rightBarButtonItem = bbi;
+
+        navItem.leftBarButtonItem = self.editButtonItem;
     }
     return self;
 }
@@ -37,6 +48,7 @@
 }
 
 
+/*
 - (UIView *)headerView
 {
     if (!_headerView) {
@@ -47,23 +59,27 @@
     }
     return _headerView;
 }
+*/
 
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
 
+    /*
     //get some room at the top of the cells...
     [self.tableView setContentInset:UIEdgeInsetsMake(50,0,0,0)];
+     */
 
     //Tell app to use the UITableViewCell class. If I subclassed the UITableViewCell, and I
     //wanted to use it, I'd set that class here...
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
 
+    /*
     UIView *header = self.headerView;
     [self.tableView setTableHeaderView:header];
-
+     */
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -133,6 +149,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
 }
 
+/*
 - (IBAction)toggleEditingMode:(id)sender
 {
     //if you are currently in editing mode, here's what you're going to do
@@ -150,6 +167,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         [self setEditing:YES animated:YES];
     }
 }
+*/
 
 - (void)tableView:(UITableView *)tableView
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle

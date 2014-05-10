@@ -15,6 +15,7 @@
 @property (nonatomic) int value;
 @property (nonatomic, strong) NSDate *dateCreated;
 
+
 //designated init method
 - (instancetype)initWithAnItemName:(NSString *)name
                       aSerialNumber:(NSString *)sNum

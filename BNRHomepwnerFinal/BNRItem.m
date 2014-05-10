@@ -74,6 +74,11 @@
     return newItem;
 }
 
+- (void)setDateCreated:(NSDate *)dateCreated
+{
+
+}
+
 - (void)dealloc
 {
     NSLog(@"deallocating...Destroyed %@", self);

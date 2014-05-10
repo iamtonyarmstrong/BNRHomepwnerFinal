@@ -20,6 +20,8 @@
 
 @implementation BNRDetailViewController
 
+
+
 - (void)setItem:(BNRItem *)item
 {
     _item = item;
@@ -62,5 +64,10 @@
     
 }
 
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.valueField resignFirstResponder];
+}
 
 @end
