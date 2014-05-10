@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *sNumber;
 @property (nonatomic) int value;
 @property (nonatomic, strong) NSDate *dateCreated;
+@property (nonatomic, strong) NSString *itemUUIDKey;
 
 
 //designated init method

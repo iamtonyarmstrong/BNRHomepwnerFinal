@@ -9,6 +9,7 @@
 #import "BNRDetailViewController.h"
 #import "BNRItem.h"
 #import "BNRDateChangeViewController.h"
+#import "BNRImageStore.h"
 
 @interface BNRDetailViewController ()
 
@@ -16,11 +17,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *serialNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *valueField;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 
 @end
 
 @implementation BNRDetailViewController
-
 
 
 - (void)setItem:(BNRItem *)item
@@ -28,6 +30,7 @@
     _item = item;
     self.navigationItem.title = _item.itemName;
 }
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -49,7 +52,16 @@
 
     //Use filtered date object to set dateLabel contents
     self.dateLabel.text = [dateFormatter stringFromDate:item.dateCreated];
+
+    //Get the image for its image from the image store using the UUID key
+    //and populate the UIImageView with it
+    NSString *itemKey = self.item.itemUUIDKey;
+    UIImage *imageToDisplay = [[BNRImageStore sharedStore] imageForKey:itemKey];
+    self.imageView.image = imageToDisplay;
+
+
 }
+
 
 - (void) viewWillDisappear:(BOOL)animated
 {
@@ -64,6 +76,45 @@
     item.value = [self.valueField.text intValue];
     
 }
+
+
+#pragma mark - Methods to handle camera functionality
+//Notice, this is how to interact with the camera. Check to see if there's a cam available, if not
+//select from the photo library.
+- (IBAction)takePicture:(id)sender
+{
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+
+    imagePickerController.delegate = self;
+
+    //Place image picker on the screen
+    [self presentViewController:imagePickerController
+                       animated:YES
+                     completion:NULL];
+}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    //Get picked image from the info directory
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+
+    //Store the image in the ImageStore using the UUID as the key
+    [[BNRImageStore sharedStore] setImage:image forKey:self.item.itemUUIDKey];
+
+    //put that image into the UIImageView
+    self.imageView.image = image;
+
+    //Now, dismiss the image picker - take it off the screen
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
 
 - (IBAction)changeDateForItem:(id)sender
 {

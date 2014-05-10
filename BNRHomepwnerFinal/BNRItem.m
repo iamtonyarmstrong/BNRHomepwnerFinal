@@ -23,6 +23,11 @@
         _value = val;
         _dateCreated = [[NSDate alloc]init];
 
+        //Create an NSUUID object - and get a string representing it
+        NSUUID *uuid = [[NSUUID alloc]init];
+        NSString *key = [uuid UUIDString];
+        _itemUUIDKey = key;
+
     }
     return self;
 }
