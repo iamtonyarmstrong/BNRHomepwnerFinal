@@ -8,6 +8,7 @@
 
 #import "BNRDetailViewController.h"
 #import "BNRItem.h"
+#import "BNRDateChangeViewController.h"
 
 @interface BNRDetailViewController ()
 
@@ -64,7 +65,22 @@
     
 }
 
+- (IBAction)changeDateForItem:(id)sender
+{
+    
+    BNRDateChangeViewController *dateViewController = [[BNRDateChangeViewController alloc] init];
 
+    //Give the detail view controller the Item
+    dateViewController.item = self.item;
+    dateViewController.dvc = self;
+
+    //push the new view controller to the top of the stack when a row is selected.
+    [self.navigationController pushViewController:dateViewController animated:YES];
+}
+
+
+//For keyboards without a RETURN button (or that you can't dismiss otherwise, use this method
+//Simply resign the first responder with the first touch outside the of the keyboard.
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.valueField resignFirstResponder];

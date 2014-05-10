@@ -26,5 +26,6 @@
 - (NSString *)description;
 - (void)dealloc;
 + (instancetype)randomItem;
+- (void) setDateCreated:(NSDate *)dateCreated;
 
 @end

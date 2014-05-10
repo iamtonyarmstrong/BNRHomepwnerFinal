@@ -76,7 +76,7 @@
 
 - (void)setDateCreated:(NSDate *)dateCreated
 {
-
+    _dateCreated = dateCreated;
 }
 
 - (void)dealloc
