@@ -9,7 +9,7 @@
                 <outlet property="dateLabel" destination="9wq-Z6-Y6N" id="LNG-Vc-fQy"/>
                 <outlet property="nameField" destination="ohp-F5-giT" id="YDP-1W-CbU"/>
                 <outlet property="serialNumberField" destination="aNN-Ij-geP" id="R0g-xm-Vdq"/>
-                <outlet property="valueLabel" destination="XPR-Kd-gpi" id="xI6-ph-lxf"/>
+                <outlet property="valueField" destination="XPR-Kd-gpi" id="xhh-cg-IPs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

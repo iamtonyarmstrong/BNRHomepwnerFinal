@@ -24,7 +24,8 @@
 {
     //call the default init of the superclass, if a developer calls this init
     if(self = [super initWithStyle:UITableViewStylePlain]){
-        
+        UINavigationItem *navItem = self.navigationItem;
+        navItem.title = @"Homepwner";
     }
     return self;
 }
@@ -34,6 +35,7 @@
 {
     return [self init];
 }
+
 
 - (UIView *)headerView
 {
@@ -62,6 +64,13 @@
     UIView *header = self.headerView;
     [self.tableView setTableHeaderView:header];
 
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    [self.tableView reloadData];
 }
 
 #pragma mark - Create and select rows and the individual cells of the tables
@@ -96,6 +105,12 @@
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BNRDetailViewController *detailViewController = [[BNRDetailViewController alloc] init];
+
+    NSArray *items = [[BNRItemStore sharedStore]allItems];
+    BNRItem *selectedItem = items[indexPath.row];
+
+    //Give the detail view controller the Item
+    detailViewController.item = selectedItem;
 
     //push the new view controller to the top of the stack when a row is selected.
     [self.navigationController pushViewController:detailViewController animated:YES];
@@ -170,5 +185,6 @@ titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return @"No More Items.";
 }
+
 
 @end
